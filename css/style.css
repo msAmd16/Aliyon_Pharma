@@ -632,8 +632,8 @@ footer {
   }
 
   .ceo-img {
-    width: 500px;
-      /* ukuran lebih pas untuk mobile */
+    width: 100%;
+    max-width: 300px;   /* ukuran lebih pas untuk mobile */
     height: 130px;
     display: block;
     margin: 0 auto;
@@ -643,9 +643,6 @@ footer {
     font-size: 13px;
   }
 }
-
-
-
 
 
 
