@@ -644,5 +644,54 @@ footer {
   }
 }
 
+@media (max-width: 768px) {
+  
+  header {
+    position: relative; /* wajib untuk overlay */
+    background-image: url("../img/back.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  /* Overlay gelap di atas background, tapi tidak mengenai teks */
+  header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45); /* tingkat kegelapan overlay */
+    z-index: 1;
+  }
+
+  /* Agar semua teks berada DI ATAS overlay */
+  header * {
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Teks lebih jelas + bold */
+  header h1,
+  header p,
+  header .tab {
+    color: #ffffff !important;               
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
+  }
+
+  /* Tab aktif */
+  header .tab.active {
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.5);
+  }
+
+  header .tab {
+    background: rgba(0,0,0,0.25);
+  }
+}
+
+
 
 
