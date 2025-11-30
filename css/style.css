@@ -1,0 +1,648 @@
+:root {
+  --accent: #0f6ab4;
+  --muted: #6b7280;
+  --card: #ffffff;
+  --bg: #f4f7fb;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Inter, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  margin: 0;
+  background: var(--bg);
+  color: #0f1724;
+}
+header {
+  background: linear-gradient(90deg, var(--accent), #0577c9);
+  color: #fff;
+  padding: 28px 20px;
+}
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px;
+}
+.brand {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+.logo {
+  width: 64px;
+  height: 64px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #fff2, #fff4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: var(--accent);
+}
+h1 {
+  margin: 0;
+  font-size: 20px;
+}
+p.lead {
+  margin: 6px 0 0;
+  opacity: 0.95;
+}
+
+/* Tabs */
+nav.tabs {
+  display: flex;
+  gap: 8px;
+  margin-top: 18px;
+  flex-wrap: wrap;
+}
+.tab {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #fff;
+}
+.tab.active {
+  background: #fff;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+main {
+  padding: 28px 0;
+}
+.card {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 6px 20px rgba(12, 15, 20, 0.06);
+  margin-bottom: 18px;
+}
+
+/* Layout utama: 2 kolom di desktop */
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+/* Pastikan aside rapi */
+aside {
+  position: relative;
+}
+
+aside .card {
+  margin-bottom: 20px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr; /* 1 kolom saja */
+  }
+
+  aside {
+    margin-top: 20px; /* beri jarak dari konten */
+  
+  }
+}
+
+@media (max-width: 500px) {
+  header .brand h1 {
+    font-size: 1.2rem; /* mengecilkan judul di HP */
+  }
+
+  header .lead {
+    font-size: 0.9rem;
+  }
+
+  .products .item {
+    width: 100%; /* produk full width di mobile */
+  }
+}
+
+.gambar-box img {
+  width: 100%; /* otomatis mengikuti lebar div */
+  height: auto; /* menjaga proporsi */
+  border-radius: 8px;
+}
+
+.welcome-banner {
+  position: relative;
+  background-image: url("../img/back.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* color: #fff; */
+  filter: brightness(89%);
+}
+.welcome-banner h1 {
+  font-size: 42px;
+  font-weight: bold;
+  text-align: center;
+  color: #000;
+}
+@media only screen and (max-width: 768px) {
+  .welcome-banner {
+    height: 150px;
+  }
+  .welcome-banner h1 {
+    font-size: 24px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .welcome-banner {
+    height: 100px;
+  }
+  .welcome-banner h1 {
+    font-size: 18px;
+  }
+}
+
+.video-container {
+  width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.video-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.video-description {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* Products */
+.iklan {
+  position: relative;
+  width: 800px;
+  height: 400px;
+  margin: 50px auto;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.video-iklan {
+  position: relative;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 item per baris */
+  gap: 20px; /* jarak antar item */
+}
+
+.item {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.item:hover {
+  transform: translateY(-5px);
+}
+
+.itm-img {
+  width: 100%;
+  display: block;
+}
+
+.info {
+  padding: 10px;
+  text-align: center;
+}
+
+.info .price {
+  font-weight: bold;
+  color: #333;
+}
+
+.info .dis {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Responsif: mobile 1 item per baris, tablet 2 item */
+@media (max-width: 900px) {
+  .products {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .products {
+    grid-template-columns: 1fr;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .iklan,
+  .video-iklan {
+    height: 100vh;
+    width: 1fr;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .iklan,
+  .video-iklan {
+    height: 50vh;
+    width: 1fr;
+  }
+}
+
+/* Activities */
+.activities {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  /* align: center; */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.activity {
+  border-radius: 10px;
+  border: 1px solid #eef3f8;
+  /* flex: 1 1 45%; /* Visi & Misi bagi 2 kolom */
+  background: #e9f3ff;
+  padding: 10px;
+}
+.activity p {
+  text-align: justify;
+  text-indent: 0.5cm;
+  line-height: 1.5; /* spasi antar baris lebih rapat */
+  margin-top: 0; /* hilangkan jarak atas default */
+  margin-bottom: 30px; /* jarak antar blok */
+}
+.activity.nilai {
+  flex: 1 1 100%; /* full width untuk Nilai Perusahaan */
+  background: #e9f3ff;
+  text-align: center;
+}
+.activity h3 {
+  margin-bottom: 10px; /* jarak kecil antara judul dan isi */
+  text-align: center;
+}
+.meta {
+  font-weight: bold;
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* Map */
+.map {
+  height: 280px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: linear-gradient(90deg, #dff1ff, #eef9ff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+}
+
+footer {
+  padding: 18px 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* Accessibility focus */
+.tab:focus {
+  outline: 3px solid rgba(15, 106, 180, 0.18);
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  margin-top: auto;
+  background: #fff;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+}
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: #f4f4f4;
+  color: #333;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+  background: #007bff;
+  color: #fff;
+  transform: translateY(-4px);
+}
+
+.social-icons i {
+  width: 22px;
+  height: 22px;
+}
+
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.item {
+  flex: 0 0 calc(33.333% - 20px); /* Tiga item per baris dengan gap */
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #f9f9f9;
+  transition: transform 0.3s ease;
+}
+
+.item:hover {
+  transform: scale(1.02);
+}
+
+.itm-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.info {
+  padding: 10px;
+}
+
+.topic {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.price {
+  color: green;
+  margin-bottom: 5px;
+}
+
+.dis {
+  font-size: 14px;
+  color: #666;
+}
+
+.ceo-founded {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.ceo,
+.founder {
+  width: 40%;
+  text-align: center;
+  margin: 0 5px;
+}
+.ceo-img,
+.founder-img {
+  width: 160px;
+  height: 175px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 2px;
+  text-align: center;
+}
+
+.kegiatan {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+}
+.kegiatan-item {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ccc;
+}
+.kegiatan-item img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+.kegiatan-item h3 {
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+.kegiatan-item p {
+  font-size: 14px;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .item {
+    flex: 0 0 calc(50% - 20px); /* 2 per baris di tablet */
+  }
+}
+
+@media (max-width: 480px) {
+  .item {
+    flex: 0 0 100%; /* 1 per baris di HP */
+  }
+}
+
+/* ============================================================
+   🔥 RESPONSIVE MODE — CLEAN VERSION
+   Tablet & Mobile (≤ 768px)
+   ============================================================ */
+@media (max-width: 768px) {
+
+  /* ===== HEADER ===== */
+  header .brand {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+  header h1 {
+    font-size: 20px;
+  }
+  header .lead {
+    font-size: 14px;
+  }
+
+  /* ===== NAVIGATION ===== */
+  nav.tabs {
+    justify-content: center;
+  }
+  nav.tabs .tab {
+    width: 100%;
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  /* ===== LAYOUT GRID ===== */
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* ===== CARD ===== */
+  .card {
+    margin-bottom: 20px;
+    text-align: center;
+    justify-content: center;
+  }
+
+  /* ===== WELCOME BANNER ===== */
+  .welcome-banner {
+    height: 150px;
+  }
+  .welcome-banner h1 {
+    font-size: 24px;
+  }
+
+  /* ===== VIDEO ===== */
+  .video-container {
+    width: 100%;
+    margin: 20px 0;
+  }
+  .video-container video {
+    width: 100%;
+    height: auto;
+  }
+
+  /* ===== PRODUK ===== */
+  .products {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+  }
+  .products .item {
+    width: 48%;
+  }
+
+  /* ===== CEO ===== */
+  .ceo-founded {
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /* <-- BIKIN KONTEN RATA TENGAH */
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .ceo-img {
+    width: 100%;
+    max-width: 400px;      /* fleksibel */
+    height: 250px;
+    margin: 0 auto;        /* <-- gambar benar-benar ke tengah */
+    display: block;
+  }
+
+  /* ===== ASIDE ===== */
+  aside .card {
+    width: 100%;
+  }
+
+  /* ===== STRUKTUR ORGANISASI ===== */
+  .gambar-box img {
+    width: 100%;
+    height: auto;
+  }
+
+  /* ===== TEXT ===== */
+  p,
+  li {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+}
+
+/* ============================================================
+   🔥 RESPONSIVE MODE — SMALL PHONE (≤ 480px)
+   ============================================================ */
+@media (max-width: 480px) {
+
+  header h1 {
+    font-size: 18px;
+  }
+
+  nav.tabs .tab {
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  .welcome-banner {
+    height: 100px;
+  }
+  .welcome-banner h1 {
+    font-size: 18px;
+  }
+
+  .products .item {
+    width: 100%;
+  }
+
+  .card {
+    margin-bottom: 10px;
+    text-align: center;
+    justify-content: center;
+  }
+
+  /* ===== CEO ===== */
+  .ceo-founded {
+    flex-direction: column;
+    align-items: center;  /* <-- tetap rata tengah */
+    justify-content: center;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .ceo-img {
+    width: 100%;
+    max-width: 300px;   /* ukuran lebih pas untuk mobile */
+    height: 130px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  footer p {
+    font-size: 13px;
+  }
+}
+
+
+
